@@ -1,0 +1,123 @@
+/* style for login screen */
+.google-login-container{
+    width: 500px;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5rem;
+}
+
+
+.login-body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+
+.login-heading{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+
+.login-desc{
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+
+/* style for editor screen */
+.upload-container{
+    width: 250px;
+    height: 180px;
+    /* border: 1px solid black; */
+    margin: auto;
+    background-color: #eceef2;
+    box-shadow: 5px 5px 10px rgba(0,0,0,3);
+    display: flex;
+    justify-content: center;
+}
+
+
+.uploadBox{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #6c757d;
+}
+
+
+.save-button-container{
+    display: flex;
+    flex-direction: row;
+    gap:2rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+
+/* style image preivew on crop */
+.preivew-container {
+    width: 400px;
+    height: 300px;
+    /* border: 1px solid black; */
+    margin: auto;
+    background-color: #eceef2;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 3);
+    display: flex;
+    justify-content: center;
+}
+
+
+.preview img{
+    display: flex;
+    /* margin: auto; */
+    max-width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.preview {
+    width: 800px;
+    height: 500px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* style gallery screen */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+
+.card {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.card-content {
+    padding: 16px;
+}
+
+
+.card-content img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+.image-name{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 400;
+}

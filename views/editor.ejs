@@ -1,0 +1,68 @@
+<%- include('partials/header') %>
+<body>
+    
+    <div class="imageConatiner">
+        <form  action="/image/editor" method="POST" enctype="multipart/form-data">
+            <div class = "upload-container">
+                <label for="inputImage">
+                    <div class="uploadBox">
+                        <!-- upload an image to crop -->
+                        <input enctype="multipart/form-data" type="file" id="inputImage" name="image" style="display:none;">
+                        <!-- upload icon -->
+                        <i class="fas fa-upload fa-2x">Upload</i>
+                    </div>
+                </label>
+            </div>
+            <!-- button to save image to gallery -->
+            <div class="save-button-container">
+                <button type="submit" class="btn btn-secondary btn-sm">Save to Gallery</button>
+                <button id="downloadButton" class="btn btn-secondary btn-sm">Download</button>
+            </div>
+        </form>
+    </div>
+    
+    <!-- download the cropped image -->
+   
+    <!-- <div class="preview-container"> -->
+        <div class="preview">
+            <img src="" id="croppedImage">
+        </div>
+    <!-- </div> -->
+    
+    
+</body>
+
+
+<script>
+
+    // use cropper to get the coordinates of the image
+    const input = document.getElementById('inputImage');
+    const cropper = new Cropper(document.getElementById('croppedImage'), {
+        aspectRatio: 1, 
+        viewMode: 1,
+        zoomable: false,
+        crop(event) {
+            // retrive the coordinates
+            const { x, y, width, height } = event.detail
+        },
+    })
+
+    input.addEventListener('change', (e) => {
+        const file = e.target.files[0]
+        if (file) {
+            const reader = new FileReader()
+            reader.onload = (event) => {
+                cropper.replace(event.target.result)
+            }
+            reader.readAsDataURL(file)
+        }
+    })
+
+    // download the cropped image on click of Download button
+    document.getElementById('downloadButton').addEventListener('click', async () => {
+        const a = document.createElement('a')
+        a.href = cropper.getCroppedCanvas().toDataURL('image/jpeg')
+        a.download = new Date().getTime()
+        a.click()
+    })
+</script>
